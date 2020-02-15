@@ -15,9 +15,9 @@ ENDIF
         *****buttons*****
 SEQUENCE requestElevator 
     OBTAIN destination FROM button pressed
-    OBTAIN direction FROM button pressed
+    OBTAIN requestDirection FROM button pressed
     OBTAIN requestFloor FROM button pressed
-    RETURN direction AND requestFloor AND destination TO findColumn
+    RETURN requestDirection AND requestFloor AND destination TO findColumn
 END SEQUENCE
 
         *****findColumn*****   (DRAFT)
@@ -33,28 +33,38 @@ SEQUENCE findElevator WITH floor AND direction
 
 IF designated column IS columnBasement 
 FOR EACH elevator IN elevatorList OF columnBasement
-IF elevatorFloors EQUAL requestDestination AND elevatorDirection EQUAL direction
+
+IF elevatorFloors EQUAL requestFloor AND elevatorDirection EQUAL requestDirection
     THEN SET elevatorScore TO ZERO
-IF elevatorDirection IS Down AND requestDestination IS greater than elevatorFloors
+
+IF elevatorDirection IS Down AND requestFloor IS greater than elevatorFloors
     THEN SET elevatorScore TO TWO 
+
 IF elevatorDirection IS NULL 
     THEN COMPUTE floorsDiff as absolute requestFloor - elevator destination 
     SET elevatorScore TO floorsDiff value plus TWO
+
+ELSE SET elevatorScore TO ONE HUNDRED
 END IF 
 RETURN elevator WITH lowest elevatorScore value
 
 ELSE IF FOR EACH elevator IN elevatorList OF designated column 
 OBTAIN elevatorFloors
 OBTAIN elevatorDirection
-IF elevatorFloors EQUAL requestDestination AND elevatorDirection EQUAL direction 
+
+IF elevatorFloors EQUAL requestDestination AND elevatorDirection EQUAL requestDirection 
     THEN SET elevatorScore TO ZERO
-IF elevatorDirection IS Down AND requestDestination IS lesser than elevatorFloors
+
+IF elevatorDirection IS Down AND requestFloor IS lesser than elevatorFloors
     THEN SET elevatorScore TO TWO 
-IF elevatorDirection IS UP AND requestDestination IS greater than elevatorFloors
+
+IF elevatorDirection IS UP AND requestFloor IS greater than elevatorFloors
     THEN SET elevatorScore TO THREE
+
 IF elevatorDirection IS NULL 
     THEN COMPUTE floorsDiff as absolute requestFloor - elevator destination 
     SET elevatorScore TO floorsDiff value plus THREE
+ELSE SET elevatorScore TO ONE HUNDRED
 END IF 
 RETURN elevator WITH lowestelevatorScore
 END SEQUENCE

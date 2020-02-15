@@ -28,32 +28,8 @@ SET floorList TO total number OF floors
         ******Button******
 SEQUENCE requestElevator 
     OBTAIN destination FROM button pressed
-    OBTAIN direction FROM button pressed
-    RETURN direction AND requestDestination TO FindElevator 
-END SEQUENCE
-
-SEQUENCE requestFloor
-    OBTAIN destination FROM button pressed
-    OBTAIN direction FROM button pressed
-    RETURN direction AND destination TO moveElevator
-END SEQUENCE 
-
-SEQUENCE manageDoors
-DO OPEN doors
-OBTAIN weight 
-
-IF weight IS greater than ElevatorMaximumCapacity 
-    THEN OBTAIN weight ?
-    CALL lightSwitch
-    REPEAT UNTIL weight IS lesser or EQUAL to elevatorMaximumCapacity
-
-IF weight IS lesser than elevatorMaximumCapacity
-    CALL turnOffLight
-    THEN WAIT 30 seconds
-    DO CLOSE doors
-
-ELSE DO close doors
-
+    OBTAIN requestDirection FROM button pressed
+    RETURN requestDirection AND requestFloor TO FindElevator 
 END SEQUENCE
 
             *********Elevator*********
@@ -61,19 +37,19 @@ SEQUENCE FindElevator WITH floor AND direction RETURNING elevator
     FOR EACH elevator in elevatorlist
     OBTAIN elevatorFloors
     OBTAIN elevatorDirection
-        IF elevatorFloors EQUAL requestDestination AND elevatorDirection EQUAL direction 
+        IF elevatorFloors EQUAL requestFloor AND elevatorDirection EQUAL direction 
             THEN SET elevatorScore TO ZERO
 
-        ELSE IF requestDestination IS between elevatorDestination AND elevatorFloors AND direction EQUAL elevatorDirection
+        ELSE IF requestFloor IS between elevatorDestination AND elevatorFloors AND direction EQUAL elevatorDirection
             THEN SET elevatorScore TO ONE
 
-        ELSE IF elevatorFloors EQUAL requestDestination AND elevatorDirection EQUAL NULL 
+        ELSE IF elevatorFloors EQUAL requestFloor AND elevatorDirection EQUAL NULL 
             THEN SET elevatorScore TO TWO
 
-        ELSE IF requestDestination IS NOT between elevatorDestination AND elevatorFloors AND direction EQUAL elevatorDirection 
+        ELSE IF requestFloor IS NOT between elevatorDestination AND elevatorFloors AND direction EQUAL elevatorDirection 
             THEN SET elevatorScore TO THREE
 
-        ELSE IF requestDestination IS NOT between elevatorDirection AND elevatorFloors AND direction EQUAL NOT elevatorDirection AND elevatorDirection IS NOT NULL
+        ELSE IF requestFloor IS NOT between elevatorDirection AND elevatorFloors AND direction EQUAL NOT elevatorDirection AND elevatorDirection IS NOT NULL
             THEN SET elevatorScore TO FOUR
 
         ELSE IF elevatorDirection EQUAL NULL
@@ -85,6 +61,16 @@ SEQUENCE FindElevator WITH floor AND direction RETURNING elevator
     RETURN destination TO moveElevator WITH lowest score value
         
 END SEQUENCE
+
+
+
+
+
+SEQUENCE requestFloor
+    OBTAIN destination FROM button pressed
+    OBTAIN direction FROM button pressed
+    RETURN direction AND destination TO moveElevator
+END SEQUENCE 
 
 
 
@@ -111,6 +97,25 @@ IF destination IS NULL
     THEN WAIT UNTIL destination IS NOT EQUAL TO NULL 
 END SEQUENCE 
 
+        *****doors*****
+SEQUENCE manageDoors
+DO OPEN doors
+OBTAIN weight 
+
+IF weight IS greater than ElevatorMaximumCapacity 
+    THEN OBTAIN weight ?
+    CALL lightSwitch
+    REPEAT UNTIL weight IS lesser or EQUAL to elevatorMaximumCapacity
+
+IF weight IS lesser than elevatorMaximumCapacity
+    CALL turnOffLight
+    THEN WAIT 30 seconds
+    DO CLOSE doors
+
+ELSE DO close doors
+END SEQUENCE
+
+        *****Lights*****
 SEQUENCE lightSwitch
     SET light on
 END SEQUENCE 
