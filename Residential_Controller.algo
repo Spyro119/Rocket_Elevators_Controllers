@@ -53,7 +53,7 @@ SEQUENCE FindElevator WITH floor AND direction RETURNING elevator
             THEN SET elevatorScore TO FOUR
 
         ELSE IF elevatorDirection EQUAL NULL
-            THEN COMPUTE floorsDiff as absolute elevatorFloors minus requestDestination
+            THEN COMPUTE floorsDiff as absolute elevatorFloors minus requestFloor
             SET elevatorScore TO floorsDiff plus 6
 
         ELSE SET elevatorScore TO 100
@@ -66,7 +66,7 @@ END SEQUENCE
 
 
 
-SEQUENCE requestFloor
+SEQUENCE requestDestination
     OBTAIN destination FROM button pressed
     OBTAIN direction FROM button pressed
     RETURN direction AND destination TO moveElevator
@@ -75,7 +75,7 @@ END SEQUENCE
 
 
 SEQUENCE moveElevator WITH destination
-IF elevatorFloors EQUAL destination 
+IF elevatorFloors EQUAL requestFloor 
     THEN CALL manageDoors
     
 IF doors are OPEN 

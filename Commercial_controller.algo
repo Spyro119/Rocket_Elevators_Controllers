@@ -37,8 +37,11 @@ FOR EACH elevator IN elevatorList OF columnBasement
 IF elevatorFloors EQUAL requestFloor AND elevatorDirection EQUAL requestDirection
     THEN SET elevatorScore TO ZERO
 
-IF elevatorDirection IS Down AND requestFloor IS greater than elevatorFloors
-    THEN SET elevatorScore TO TWO 
+IF elevatorDirection IS Down AND requestFloor IS lesser than elevatorFloors
+    THEN SET elevatorScore TO ONE 
+
+IF requestDirection IS UP AND elevatorFloor IS lesser than requestFloor 
+    THEN SET elevatorScore TO TWO
 
 IF elevatorDirection IS NULL 
     THEN COMPUTE floorsDiff as absolute requestFloor - elevator destination 
@@ -56,10 +59,10 @@ IF elevatorFloors EQUAL requestDestination AND elevatorDirection EQUAL requestDi
     THEN SET elevatorScore TO ZERO
 
 IF elevatorDirection IS Down AND requestFloor IS lesser than elevatorFloors
-    THEN SET elevatorScore TO TWO 
+    THEN SET elevatorScore TO ONE
 
 IF elevatorDirection IS UP AND requestFloor IS greater than elevatorFloors
-    THEN SET elevatorScore TO THREE
+    THEN SET elevatorScore TO TWO 
 
 IF elevatorDirection IS NULL 
     THEN COMPUTE floorsDiff as absolute requestFloor - elevator destination 
