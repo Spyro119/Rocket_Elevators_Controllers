@@ -29,7 +29,7 @@ SET floorList TO total number OF floors
 SEQUENCE requestElevator 
     OBTAIN destination FROM button pressed
     OBTAIN direction FROM button pressed
-    RETURN direction AND requestDestination TO FindElevator
+    RETURN direction AND requestDestination TO FindElevator 
 END SEQUENCE
 
 SEQUENCE requestFloor

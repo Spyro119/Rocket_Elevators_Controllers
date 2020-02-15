@@ -28,6 +28,7 @@ END SEQUENCE
     THEN RETURN floor AND direction TO designated column
 END SEQUENCE 
 
+
 SEQUENCE findElevator WITH floor AND direction 
 
 IF designated column IS columnBasement 
