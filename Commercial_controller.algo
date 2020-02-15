@@ -1,0 +1,110 @@
+        *****Variables*****
+SET floorList TO total number OF floor plus total number OF basement 
+SET elevatorList TO total number OF elevators 
+SET elevatorPerColumnList TO totalElevators divided by totalColumns
+SET floorList length EQUAL TO totalFloor plus basementFloor
+IF building has a basement
+   THEN ADD EACH basementFloor plus RC FROM floorList TO columnFloorListBasement
+    SET columnFloorList length EQUAL totalFloor minus basement divided by totalColumns 
+    SET columnFloorList values AS floorList minus basementFloor divided by totalColumns minus one 
+ELSE SET columnFloorList length EQUAL totalFloor divided by totalColumns
+    SET columnFloorList values AS floorList divided by totalColumns
+ENDIF 
+
+
+        *****buttons*****
+SEQUENCE requestElevator 
+    OBTAIN destination FROM button pressed
+    OBTAIN direction FROM button pressed
+    OBTAIN requestFloor FROM button pressed
+    RETURN direction AND requestFloor AND destination TO findColumn
+END SEQUENCE
+
+        *****findColumn*****   (DRAFT)
+ SEQUENCE findColumn WITH floor AND direction RETURNING column
+    FOR EACH column IN columnList
+    OBTAIN floors OF EACH columnFloorList
+    IF floor IS IN columnFloorList 
+    THEN RETURN floor AND direction TO designated column
+END SEQUENCE 
+
+SEQUENCE findElevator WITH floor AND direction 
+
+IF designated column IS columnBasement 
+FOR EACH elevator IN elevatorList OF columnBasement
+IF elevatorFloors EQUAL requestDestination AND elevatorDirection EQUAL direction
+    THEN SET elevatorScore TO ZERO
+IF elevatorDirection IS Down AND requestDestination IS greater than elevatorFloors
+    THEN SET elevatorScore TO TWO 
+IF elevatorDirection IS NULL 
+    THEN COMPUTE floorsDiff as absolute requestFloor - elevator destination 
+    SET elevatorScore TO floorsDiff value plus TWO
+END IF 
+RETURN elevator WITH lowest elevatorScore value
+
+ELSE IF FOR EACH elevator IN elevatorList OF designated column 
+OBTAIN elevatorFloors
+OBTAIN elevatorDirection
+IF elevatorFloors EQUAL requestDestination AND elevatorDirection EQUAL direction 
+    THEN SET elevatorScore TO ZERO
+IF elevatorDirection IS Down AND requestDestination IS lesser than elevatorFloors
+    THEN SET elevatorScore TO TWO 
+IF elevatorDirection IS UP AND requestDestination IS greater than elevatorFloors
+    THEN SET elevatorScore TO THREE
+IF elevatorDirection IS NULL 
+    THEN COMPUTE floorsDiff as absolute requestFloor - elevator destination 
+    SET elevatorScore TO floorsDiff value plus THREE
+END IF 
+RETURN elevator WITH lowestelevatorScore
+END SEQUENCE
+
+SEQUENCE manageDoors
+DO OPEN doors
+OBTAIN weight 
+
+IF weight IS greater than ElevatorMaximumCapacity 
+    THEN OBTAIN weight
+    CALL lightSwitch
+    REPEAT UNTIL weight IS lesser or EQUAL to elevatorMaximumCapacity
+
+IF weight IS lesser than elevatorMaximumCapacity
+    CALL TurnOffLight
+    THEN WAIT 30 seconds
+    DO CLOSE doors
+
+ELSE DO CLOSE doors 
+
+END SEQUENCE
+
+
+        *****elevator*****
+SEQUENCE moveElevator WITH destination
+IF elevatorFloors EQUAL requestDestination 
+    THEN CALL manageDoors
+    
+IF doors are OPEN 
+    THEN WAIT 15 seconds
+    OBTAIN door status
+    REPEAT UNTIL doors are CLOSED
+
+IF elevatorFloors IS greater than destination 
+    THEN elevatorDirection IS Down
+    DO moveDown UNTIL destination 
+    CALL manageDoors
+
+IF elevatorFloors IS lesser than destination
+    THEN elevatorDirection IS Up
+    DO moveUp UNTIL destination
+    CALL manageDoors
+
+IF destination IS NULL 
+    THEN WAIT UNTIL destination IS NOT EQUAL TO NULL 
+END SEQUENCE 
+
+SEQUENCE lightSwitch
+    SET light on
+END SEQUENCE 
+
+SEQUENCE TurnOffLight
+    SET light off 
+END SEQUENCE 

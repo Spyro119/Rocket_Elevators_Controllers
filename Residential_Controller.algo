@@ -1,0 +1,120 @@
+"Column var:
+requestElevator
+destination
+
+Elevator var:
+elevatorFloors
+direction
+destination
+floor
+manageDoors
+waitList
+requestFloor
+elevatorDestinaion
+elevatorList
+
+SEQUENCE :
+requestElevator
+requestFloor
+waitList
+FindElevator
+moveElevator
+manageDoors"
+
+        *****variables*****
+SET elevatorList TO number OF elevator
+SET floorList TO total number OF floors 
+
+        ******Button******
+SEQUENCE requestElevator 
+    OBTAIN destination FROM button pressed
+    OBTAIN direction FROM button pressed
+    RETURN direction AND requestDestination TO FindElevator
+END SEQUENCE
+
+SEQUENCE requestFloor
+    OBTAIN destination FROM button pressed
+    OBTAIN direction FROM button pressed
+    RETURN direction AND destination TO moveElevator
+END SEQUENCE 
+
+SEQUENCE manageDoors
+DO OPEN doors
+OBTAIN weight 
+
+IF weight IS greater than ElevatorMaximumCapacity 
+    THEN OBTAIN weight ?
+    CALL lightSwitch
+    REPEAT UNTIL weight IS lesser or EQUAL to elevatorMaximumCapacity
+
+IF weight IS lesser than elevatorMaximumCapacity
+    CALL turnOffLight
+    THEN WAIT 30 seconds
+    DO CLOSE doors
+
+ELSE DO close doors
+
+END SEQUENCE
+
+            *********Elevator*********
+SEQUENCE FindElevator WITH floor AND direction RETURNING elevator
+    FOR EACH elevator in elevatorlist
+    OBTAIN elevatorFloors
+    OBTAIN elevatorDirection
+        IF elevatorFloors EQUAL requestDestination AND elevatorDirection EQUAL direction 
+            THEN SET elevatorScore TO ZERO
+
+        ELSE IF requestDestination IS between elevatorDestination AND elevatorFloors AND direction EQUAL elevatorDirection
+            THEN SET elevatorScore TO ONE
+
+        ELSE IF elevatorFloors EQUAL requestDestination AND elevatorDirection EQUAL NULL 
+            THEN SET elevatorScore TO TWO
+
+        ELSE IF requestDestination IS NOT between elevatorDestination AND elevatorFloors AND direction EQUAL elevatorDirection 
+            THEN SET elevatorScore TO THREE
+
+        ELSE IF requestDestination IS NOT between elevatorDirection AND elevatorFloors AND direction EQUAL NOT elevatorDirection AND elevatorDirection IS NOT NULL
+            THEN SET elevatorScore TO FOUR
+
+        ELSE IF elevatorDirection EQUAL NULL
+            THEN COMPUTE floorsDiff as absolute elevatorFloors minus requestDestination
+            SET elevatorScore TO floorsDiff plus 6
+
+        ELSE SET elevatorScore TO 100
+    ENDIF 
+    RETURN destination TO moveElevator WITH lowest score value
+        
+END SEQUENCE
+
+
+
+SEQUENCE moveElevator WITH destination
+IF elevatorFloors EQUAL destination 
+    THEN CALL manageDoors
+    
+IF doors are OPEN 
+    THEN WAIT 15 seconds
+    OBTAIN door status
+    REPEAT UNTIL doors are CLOSED
+
+IF elevatorFloors IS greater than destination 
+    THEN elevatorDirection IS Down
+    DO moveDown UNTIL destination 
+    CALL manageDoors
+
+IF elevatorFloors IS lesser than destination OR elevatorFloors IS lesser than destination 
+    THEN elevatorDirection IS Up
+    DO moveUp UNTIL destination
+    CALL manageDoors
+
+IF destination IS NULL 
+    THEN WAIT UNTIL destination IS NOT EQUAL TO NULL 
+END SEQUENCE 
+
+SEQUENCE lightSwitch
+    SET light on
+END SEQUENCE 
+
+SEQUENCE TurnOffLight
+    SET light off 
+END SEQUENCE 
