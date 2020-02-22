@@ -18,8 +18,9 @@ class Column:
         self.requestDirection = requestDirection
         self.findElevator(requestedFloor, requestDirection)
 
-    def requestFloor(self, destination):
+    def requestFloor(self, elevator, destination):
         self.destination = destination
+        self.elevator = self.elevatorList[0]
         self.elevatorList[0].moveD(destination)
         
 
@@ -127,7 +128,7 @@ def scenario():
                 column1.elevatorList[1].direction = "idle"
                 #Move elevator to floor 3, then floor 7
                 column1.requestElevator(requestFloor, requestDirection)
-                column1.requestFloor(destination)
+                column1.requestFloor(column1.elevatorList[0] , destination)
 
                 retry()
 
@@ -149,7 +150,7 @@ def scenario():
                 column1.elevatorList[1].direction = "idle"
                 #Move elevator to floor 1, then floor 6
                 column1.requestElevator(requestFloor, requestDirection)
-                column1.requestFloor(destination)
+                column1.requestFloor(column1.elevatorList[0] , destination)
 
                 print("")
                 print("*****2 minutes later, another request is sent*****")
@@ -162,7 +163,7 @@ def scenario():
                 destination = 5
                 #move elevator to floor 3, then 5
                 column1.requestElevator(requestFloor, requestDirection)
-                column1.requestFloor(destination)
+                column1.requestFloor(column1.elevatorList[0], destination)
 
                 print("")
                 print("*****A third request is sent.*****")
@@ -175,7 +176,7 @@ def scenario():
                 destination = 2
                 #move elevator to floor 9, then 2
                 column1.requestElevator(requestFloor, requestDirection)
-                column1.requestFloor(destination)
+                column1.requestFloor(column1.elevatorList[0] , destination)
 
                 retry()
             
@@ -197,7 +198,7 @@ def scenario():
                 column1.elevatorList[1].direction = "up"
                 #Move elevator to floor 1, then floor 6
                 column1.requestElevator(requestFloor, requestDirection)
-                column1.requestFloor(destination)
+                column1.requestFloor(column1.elevatorList[0], destination)
 
                 print("")
                 print("*****5 minutes later, another request is sent.*****")
@@ -213,7 +214,7 @@ def scenario():
                 column1.elevatorList[1].direction = "idle"
                 #move elevator to floor 3, then 5
                 column1.requestElevator(requestFloor, requestDirection)
-                column1.requestFloor(destination)
+                column1.requestFloor(column1.elevatorList[0], destination)
                 retry()
             break
         except ValueError:
