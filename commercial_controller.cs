@@ -60,7 +60,7 @@ public class Battery{
         findColumn(floorNumber, requestedFloor);
     
       } 
-    }
+}
     public void assignElevator(int requestedFloor){
       if (requestedFloor != 1){
        int floorNumber = 1;
@@ -69,7 +69,7 @@ public class Battery{
 
     
 
-    }
+}
     Column findColumn (int floorNumber, int requestedFloor){
       Column bestCol = this.columnList[0];
       for (var i =0; i < this.columnList.Count; i++)
@@ -84,7 +84,7 @@ public class Battery{
 				//             ***** FOR K = FLOOR in floorList, REQUEST FLOOR HAS TO BE IN COLUMN floorList ARRAY AND requestedFloor MUST BE RC *****
 			} else if (floorNumber == k && requestedFloor == 1){
 				bestCol = this.columnList[i];
-				bestCol.findElevator(floorNumber, requestedFloor, bestCol);
+				
 			}
 		}
 	}
@@ -392,7 +392,7 @@ class Program
         } else if(retryInput == "n")
         Console.WriteLine("Thank you. Exiting program.");
     }
-	retry();
+	retry(); 
         
               
     }
