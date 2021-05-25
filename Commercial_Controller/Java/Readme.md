@@ -1,4 +1,4 @@
-# Commercial Algorithm for Rocket Elevators in C#
+# Commercial Algorithm for Rocket Elevators in Java
 
 A simple algorithm that calculates the nearest elevator to send at to someone who is requesting an elevator.
 
