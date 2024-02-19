@@ -1,5 +1,5 @@
 ﻿using System;
-using Class.Battery;
+using Class;
 
 namespace Rocket_Elevators_Commercial_Controller
 {

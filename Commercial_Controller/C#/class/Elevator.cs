@@ -1,6 +1,6 @@
 using System;
 
-namespace Class.ElevatorObject{
+namespace Class {
 
 public class Elevator{
   public string name;

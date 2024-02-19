@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Class.ElevatorObject;
 
-namespace Class.ColumnObject {
+namespace Class {
 
     public class Column{
     public string name;
