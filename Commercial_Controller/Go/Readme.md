@@ -1,38 +1,158 @@
-# Commercial Algorithm for Rocket Elevators in C#
+<a name="readme-top"></a>
+
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/Spyro119/Rocket_Elevators_Controllers">
+    <img src="docs/images/logo.png" alt="Logo" height="80">
+  </a>
+
+  <h3 align="center">Commercial Algorithm for Rocket Elevators in Go</h3>
+
+  <p align="center">
+    A simple algorithm that calculates the nearest elevator to send at to someone who is requesting an elevator.
+    <br />
+    <a href="#"><strong>Explore documentation »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/Spyro119/Rocket_Elevators_Controllers/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/Spyro119/Rocket_Elevators_Controllers/issues">Request Feature</a>
+  </p>
+</div>
+
+
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About the project
+
+[![Product Name Screen Shot][product-screenshot]](./docs/images/screenshot.png)
 
 A simple algorithm that calculates the nearest elevator to send at to someone who is requesting an elevator.
 
-## Getting Started
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Simply go into Go/src directory and 
-```bash
-go build *.go
- ```
 
-and run the application 
-```bash
-./class-battery
-```
-You can then choose which scenario you'd like to play in the prompt by typing 1, 2, 3 or 4.
+<!-- BUILT WITH -->
+### Built with
+
+* [![Golang-shield]][Golang-project-url]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- GETTING STARTED -->
+## Getting started
 
 ### Prerequisites
 
-```
-- Go 1.16.3
-```
+- Go
 
-## Built With
+### Installation
 
-```
-Golang
-```
+1. Clone the repo
+  ```sh
+  git clone https://github.com/Spyro119/Rocket_Elevators_Controllers/
+  ```
+2. Cd into the Go/src directory
+  ```sh
+  cd Rocket_Elevators_Controllers/Rocket_Elevators_Controllers/Commercial_Controller/Go/src
+  ```
+3. Build project
+ ```sh
+ go build main.go
+ ```
+4. Run the app
+ ```sh
+ ./main
+ ```
 
-## Contributing
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-## Authors
 
-* **Samuel Jubinville-Baril** - Codeboxx/RocketElevators 
+<!-- CONTACT -->
+## Contact
+
+Samuel Jubinville-Baril - [github](https://github.com/Spyro119) - samuel.jubinville@outlook.com
+
+Project Link: [https://github.com/Spyro119/Rocket_Elevators_Controllers](https://github.com/Spyro119/Rocket_Elevators_Controllers)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+<!-- GITHUB URLS -->
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/VIP.svg?style=for-the-badge
+[contributors-url]: https://github.com/Spyro119/Rocket_Elevators_Controllers/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/othneildrew/VIP.svg?style=for-the-badge
+[forks-url]: https://github.com/Spyro119/Rocket_Elevators_Controllers/network/members
+[stars-shield]: https://img.shields.io/github/stars/othneildrew/VIP.svg?style=for-the-badge
+[stars-url]: https://github.com/Spyro119/Rocket_Elevators_Controllers/stargazers
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/VIP.svg?style=for-the-badge
+[issues-url]: https://github.com/Spyro119/Rocket_Elevators_Controllers/issues
+[license-shield]: https://img.shields.io/github/license/Spyro119/Rocket_Elevators_Controllers.svg?style=for-the-badge
+[license-url]: https://github.com/Spyro119/Rocket_Elevators_Controllers/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/samuel-jubinville-baril-bbb5601a4/
+[product-name]: Rocket_Elevators_Controllers
+[product-screenshot]: docs/images/screenshot.png
+[Product-name-screenshot]: Rocket_Elevators_Controllers
+[Golang-shield]: https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white
+[Java-shield]: https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white
+[python-shield]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
+[javascript-shield]: https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E
+
+
+<!-- REPO URLS -->
+[Dotnet-project-url]: Commercial_Controller/C%23
+[Golang-project-url]: Commercial_Controller/Go
+[Java-project-url]: Commercial_Controller/Java
+[Python-project-url]: Residential_Controller/python
+[Javascript-project-url]: Residential_Controller/js
+
+
+<!-- FRAMEWORK AND LIBRARY URLS -->
+[Python-shield]: https://img.shields.io/pypi/pyversions/FastAPI?logo=python
+[Python-url]: (https://www.python.org/)
+[Dotnet-shield]: https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white
+[Dotnet-url]: https://dotnet.microsoft.com/en-us/
+[Vue-shield]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
+[Vue-url]: https://vuejs.org/
 
 ## License
 
