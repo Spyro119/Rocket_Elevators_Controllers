@@ -117,13 +117,13 @@ Project Link: [https://github.com/Spyro119/Rocket_Elevators_Controllers](https:/
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 <!-- GITHUB URLS -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/VIP.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/Spyro119/Rocket_Elevators_Controllers.svg?style=for-the-badge
 [contributors-url]: https://github.com/Spyro119/Rocket_Elevators_Controllers/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/VIP.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/Spyro119/Rocket_Elevators_Controllers.svg?style=for-the-badge
 [forks-url]: https://github.com/Spyro119/Rocket_Elevators_Controllers/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/VIP.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/Spyro119/Rocket_Elevators_Controllers.svg?style=for-the-badge
 [stars-url]: https://github.com/Spyro119/Rocket_Elevators_Controllers/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/VIP.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/Spyro119/Rocket_Elevators_Controllers.svg?style=for-the-badge
 [issues-url]: https://github.com/Spyro119/Rocket_Elevators_Controllers/issues
 [license-shield]: https://img.shields.io/github/license/Spyro119/Rocket_Elevators_Controllers.svg?style=for-the-badge
 [license-url]: https://github.com/Spyro119/Rocket_Elevators_Controllers/blob/master/LICENSE.txt

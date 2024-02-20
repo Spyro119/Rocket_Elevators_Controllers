@@ -11,7 +11,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Spyro119/Rocket_Elevators_Controllers">
-    <img src="docs/images/logo.png" alt="Logo" height="80">
+    <img src="../../docs/images/logo.png" alt="Logo" height="80">
   </a>
 
   <h3 align="center">Commercial Algorithm for Rocket Elevators in Go</h3>
@@ -57,7 +57,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About the project
 
-[![Product Name Screen Shot][product-screenshot]](./docs/images/screenshot.png)
+[![Product Name Screen Shot][product-screenshot]](../../docs/images/screenshot_Go.png)
 
 A simple algorithm that calculates the nearest elevator to send at to someone who is requesting an elevator.
 
@@ -117,20 +117,20 @@ Project Link: [https://github.com/Spyro119/Rocket_Elevators_Controllers](https:/
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 <!-- GITHUB URLS -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/VIP.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/Spyro119/Rocket_Elevators_Controllers.svg?style=for-the-badge
 [contributors-url]: https://github.com/Spyro119/Rocket_Elevators_Controllers/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/VIP.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/Spyro119/Rocket_Elevators_Controllers.svg?style=for-the-badge
 [forks-url]: https://github.com/Spyro119/Rocket_Elevators_Controllers/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/VIP.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/Spyro119/Rocket_Elevators_Controllers.svg?style=for-the-badge
 [stars-url]: https://github.com/Spyro119/Rocket_Elevators_Controllers/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/VIP.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/Spyro119/Rocket_Elevators_Controllers.svg?style=for-the-badge
 [issues-url]: https://github.com/Spyro119/Rocket_Elevators_Controllers/issues
 [license-shield]: https://img.shields.io/github/license/Spyro119/Rocket_Elevators_Controllers.svg?style=for-the-badge
 [license-url]: https://github.com/Spyro119/Rocket_Elevators_Controllers/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/samuel-jubinville-baril-bbb5601a4/
 [product-name]: Rocket_Elevators_Controllers
-[product-screenshot]: docs/images/screenshot.png
+[product-screenshot]: ../../docs/images/screenshot_Go.png
 [Product-name-screenshot]: Rocket_Elevators_Controllers
 [Golang-shield]: https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white
 [Java-shield]: https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white
